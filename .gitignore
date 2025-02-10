@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore JetBrains IDE project files
+.idea/
+
+# macOS system files
+.DS_Store
