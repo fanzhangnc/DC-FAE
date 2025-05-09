@@ -14,8 +14,8 @@ from torchvision.transforms.functional import to_pil_image
 from torchvision.utils import make_grid
 
 # Add custom module paths to the system path
-sys.path.insert(0, '/root/autodl-tmp/SL-KD')
-sys.path.insert(0, '/root/autodl-tmp/SL-KD/models/stylegan2')
+sys.path.insert(0, '/root/autodl-tmp/DC-FAE')
+sys.path.insert(0, '/root/autodl-tmp/DC-FAE/models/stylegan2')
 
 # Models operations
 from models.ops import convert_to_cuda, load_network
@@ -130,11 +130,11 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 # ================= Paths ==================== #
 
 # Paths to various checkpoint files
-classifier_checkpoint = '/root/autodl-tmp/SL-KD/data/focal_loss_r34_age_8410.pth'
-latents_checkpoint = '/root/autodl-tmp/SL-KD/data/ffhq_train_latents.pth'
-preds_checkpoint = '/root/autodl-tmp/SL-KD/data/focal_loss_ffhq_train_preds.pth'
-realnvp_checkpoint = '/root/autodl-tmp/SL-KD/data/realnvp.pth'
-stylegan2_checkpoint_path = '/root/autodl-tmp/SL-KD/data/ffhq.pkl'
+classifier_checkpoint = '/root/autodl-tmp/DC-FAE/data/focal_loss_r34_age_8410.pth'
+latents_checkpoint = '/root/autodl-tmp/DC-FAE/data/ffhq_train_latents.pth'
+preds_checkpoint = '/root/autodl-tmp/DC-FAE/data/focal_loss_ffhq_train_preds.pth'
+realnvp_checkpoint = '/root/autodl-tmp/DC-FAE/data/realnvp.pth'
+stylegan2_checkpoint_path = '/root/autodl-tmp/DC-FAE/data/ffhq.pkl'
 
 # Initialize the StyleGAN2 decoder
 output_size = 256

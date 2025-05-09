@@ -9,7 +9,7 @@ from .insightface import iresnet50, iresnet34
 from . import resize
 
 # Path to the model file for MobileFaceNet
-MODEL_PATH_MOBILEFACENET = '/root/autodl-tmp/SL-KD/data/model_mobilefacenet.pth'
+MODEL_PATH_MOBILEFACENET = '/root/autodl-tmp/DC-FAE/data/model_mobilefacenet.pth'
 
 
 def initialize_facenet(backbone):

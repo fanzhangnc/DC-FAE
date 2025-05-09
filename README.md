@@ -1,6 +1,6 @@
-# SL-KD
+# DC-FAE
 
-Official code for `Dynamic Multi-Teacher Knowledge Distillation for Imbalanced facial attribute editing`.
+Official code for `Dynamic Dual Consistency Distillation for Imbalanced Facial Attribute Editing`.
 
 ## Getting Started
 
@@ -9,8 +9,8 @@ Official code for `Dynamic Multi-Teacher Knowledge Distillation for Imbalanced 
 The code is tested on `python 3.9, Pytorch =2.0.1`.
 
 ```
-git clone https://github.com/fanzhangnc/SL-KD.git
-cd SL-KD/
+git clone https://github.com/fanzhangnc/DC-FAE.git
+cd DC-FAE/
 conda create -n your_env_name python=3.9
 conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install -r requirements.txt
@@ -85,7 +85,7 @@ python transform_and_save_latents.py --run_name 20_1221 --keeps 15 -1 --changes 
 python transform_and_save_latents.py --run_name 39_1221 --keeps 15 20 --changes 39
 ```
 
-4. `training/train_compressed_model.py` trains a single model using the SL-KD.
+4. `training/train_compressed_model.py` trains a single model using the DC-FAE.
 
 Example scripts:
 ```sh
@@ -102,7 +102,7 @@ python train_compressed_model.py --eta [1,1,1,1,1] --gamma [0.001,0.01,0.05,0.1,
 - To select the steps where intermediate outputs from the teacher selection module guide the student model, you can use the `--out_layer`.
 
   - It is set to `[-1]` by default, meaning only the final output is used.
-  - You can use weighted coefficients with the `--gamma` to balance the contribution of each step in the weighted ℓ2 loss function, which defaults to `[1] * 10`.
+  - You can use weighted coefficients with the `--gamma` to balance the contribution of each step in the weighted L2 loss function, which defaults to `[1] * 10`.
 
 ## Testing
 
@@ -111,7 +111,7 @@ Make sure that the attribute classifier is downloaded to the `data/` directory a
 ## Directory Structure
 
 ```
-SL-KD
+DC-FAE
 │  .gitignore
 │  evaluation.ipynb                         # Use to evaluate model performance
 │  README.md
@@ -131,7 +131,7 @@ SL-KD
 │  └─stylegan2                              # StyleGAN2 code
 └─training
         latent_translation.py               # Trains teacher models
-        train_compressed_model.py           # Trains a single model using the SL-KD
+        train_compressed_model.py           # Trains a single model using the DC-FAE
         train_realnvp_and_classifier.ipynb  # Trains classifier, Real NVP, and extracts latent codes
         transform_and_save_latents.py       # Uses teacher models to process samples and save latents for distillation
 ```

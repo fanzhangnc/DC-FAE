@@ -110,7 +110,7 @@ def create_FACE_Transform(mode, img_size):
 class FFHQAge(torch.utils.data.Dataset):
     def __init__(self, data_root, age_group=7, img_size=128, split='train', mode='train', transform=None):
         # File path for labels
-        label_file = '/root/autodl-tmp/SL-KD/data/ffhq_aging_labels.csv'
+        label_file = '/root/autodl-tmp/DC-FAE/data/ffhq_aging_labels.csv'
 
         # Load and filter dataset using the create_FFHQ_AGING function
         self.img_list = create_FFHQ_AGING(data_root, label_file, age_group)

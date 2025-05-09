@@ -12,8 +12,8 @@ from torch.utils.data import DataLoader, TensorDataset
 # Other third-party imports
 import tqdm
 
-sys.path.insert(0, '/root/autodl-tmp/SL-KD')
-sys.path.insert(0, '/root/autodl-tmp/SL-KD/models/stylegan2')
+sys.path.insert(0, '/root/autodl-tmp/DC-FAE')
+sys.path.insert(0, '/root/autodl-tmp/DC-FAE/models/stylegan2')
 
 from models.decoder import StyleGANDecoder
 from models.modules import ANT, Classifier
@@ -68,10 +68,10 @@ os.environ['CUDA_VISIBLE_DEVICES'] = opts.gpu_id
 print('Loading checkpoints and data paths...')
 
 # Paths to checkpointsR
-stylegan2_checkpoint = '/root/autodl-tmp/SL-KD/data/ffhq.pkl'
-classifier_checkpoint = '/root/autodl-tmp/SL-KD/data/focal_loss_r34_age_8410.pth'
-latents_checkpoint = '/root/autodl-tmp/SL-KD/data/ffhq_train_latents.pth'
-preds_checkpoint = '/root/autodl-tmp/SL-KD/data/focal_loss_ffhq_train_preds.pth'
+stylegan2_checkpoint = '/root/autodl-tmp/DC-FAE/data/ffhq.pkl'
+classifier_checkpoint = '/root/autodl-tmp/DC-FAE/data/focal_loss_r34_age_8410.pth'
+latents_checkpoint = '/root/autodl-tmp/DC-FAE/data/ffhq_train_latents.pth'
+preds_checkpoint = '/root/autodl-tmp/DC-FAE/data/focal_loss_ffhq_train_preds.pth'
 
 print('Initializing StyleGAN Decoder...')
 # Initialize StyleGAN Decoder
@@ -331,8 +331,8 @@ change_indices, keep_indices = create_indices(opts.changes), create_indices(opts
 
 # Define paths to checkpoint files
 checkpoint_paths = [
-    f'/root/autodl-tmp/SL-KD/training/dual_trans_ckpts/{opts.run_name}/save_models/model_a-latest',
-    f'/root/autodl-tmp/SL-KD/training/dual_trans_ckpts/{opts.run_name}/save_models/model_b-latest'
+    f'/root/autodl-tmp/DC-FAE/training/dual_trans_ckpts/{opts.run_name}/save_models/model_a-latest',
+    f'/root/autodl-tmp/DC-FAE/training/dual_trans_ckpts/{opts.run_name}/save_models/model_b-latest'
 ]
 
 # Initialize a dictionary to store all time-step data for each attribute
@@ -373,7 +373,7 @@ retained_attr_str = '_'.join(map(str, opts.keeps))
 
 # Define the save path, following PEP8 line-breaking conventions
 save_path = (
-    '/root/autodl-tmp/SL-KD/data/teacher_network_output_ckpts/'
+    '/root/autodl-tmp/DC-FAE/data/teacher_network_output_ckpts/'
     f'all_attrs_steps_styles_changed_{changed_attr_str}_retained_'
     f'{retained_attr_str}.pth'
 )
